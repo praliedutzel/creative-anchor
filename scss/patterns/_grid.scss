@@ -1,0 +1,51 @@
+//-------------------------------------------------------------------------------//
+//--GRID SYSTEM------------------------------------------------------------------//
+//-------------------------------------------------------------------------------//
+
+.grid {
+   margin-right: -10px;
+   margin-left: -10px;
+   @extend %clearfix;
+
+   .flexbox & {
+      display: flex;
+      flex-wrap: wrap;
+      flex-direction: row;
+   }
+}
+
+ul.grid { padding: 0; list-style: none; }
+.grid + .button { margin-top: 0; }
+
+.grid__half {
+   width: calc(100% - 20px);
+   margin: 10px;
+   position: relative;
+   float: left;
+
+   @include bp($bp-md) { width: calc(50% - 20px); }
+}
+
+.grid__third {
+   width: calc(50% - 20px);
+   margin: 10px;
+   position: relative;
+   float: left;
+
+   @include bp($bp-sm) { width: calc(33.333% - 20px); }
+}
+
+.grid__fourth {
+   width: calc(100% - 20px);
+   margin: 10px;
+   position: relative;
+   float: left;
+
+   @include bp(px2em(384px),$max-sm) { width: calc(50% - 20px); }
+   @include bp($bp-sm,$max-md) { width: calc(33.333% - 20px); }
+   @include bp($bp-md) { width: calc(25% - 20px); }
+}
+
+.flexbox .grid__half,
+.flexbox .grid__third,
+.flexbox .grid__fourth { float: none; }

@@ -1,0 +1,146 @@
+//-------------------------------------------------------------------------------//
+//--BUTTONS----------------------------------------------------------------------//
+//-------------------------------------------------------------------------------//
+
+// Primary buttons
+.button {
+   width: auto;
+   height: auto;
+   @include rem(10px 10px 10px 0, margin);
+   @include rem(10px 25px, padding);
+   position: relative;
+   display: inline-block;
+   color: $red;
+   font-weight: normal;
+   text-transform: uppercase;
+   transition: color 0.6s;
+
+   &:hover, &:focus { color: $cyan; }
+
+   &:before, &:after {
+      content: "";
+      position: absolute;
+      display: block;
+      background-color: $red;
+      width: 2px;
+      @include trbl(0,null,0);
+      transition: all 0.3s;
+      transform: scaleY(1);
+   }
+
+   &:before { left: 0; transform-origin: 0% 0%; }
+   &:after { right: 0; transform-origin: 0% 100%; }
+   &:hover:before, &:hover:after,
+   &:focus:before, &:focus:after { transform: scaleY(0); }
+
+   & span:nth-child(2):before, & span:nth-child(2):after {
+      content: "";
+      position: absolute;
+      display: block;
+      background-color: $red;
+      height: 2px;
+      @include trbl(null,0,null,0);
+      transition: all 0.3s;
+      transform: scaleX(1);
+   }
+
+   & span:nth-child(2):before { top: 0; transform-origin: 100% 0%; }
+   & span:nth-child(2):after { bottom: 0; transform-origin: 0% 0%; }
+   &:hover span:nth-child(2):before, &:hover span:nth-child(2):after,
+   &:focus span:nth-child(2):before, &:focus span:nth-child(2):after { transform: scaleX(0); }
+
+   & span:first-child:before, & span:first-child:after {
+      content: "";
+      position: absolute;
+      display: block;
+      background-color: $cyan;
+      width: 2px;
+      @include trbl(0,null,0);
+      transition: all 0.6s;
+      transform: scaleY(0);
+   }
+
+   & span:first-child:before { left: 0; transform-origin: 0% 100%; }
+   & span:first-child:after { right: 0; transform-origin: 0% 0%; }
+   &:hover span:first-child:before, &:hover span:first-child:after,
+   &:focus span:first-child:before, &:focus span:first-child:after { transform: scaleY(1); }
+
+   & span:last-child:before, & span:last-child:after {
+      content: "";
+      position: absolute;
+      display: block;
+      background-color: $cyan;
+      height: 2px;
+      @include trbl(null,0,null,0);
+      transition: all 0.6s;
+      transform: scaleX(0);
+   }
+
+   & span:last-child:before { top: 0; transform-origin: 0% 0%; }
+   & span:last-child:after { bottom: 0; transform-origin: 100% 0%; }
+   &:hover span:last-child:before, &:hover span:last-child:after,
+   &:focus span:last-child:before, &:focus span:last-child:after { transform: scaleX(1); }
+}
+
+
+// Pagination buttons
+@include bp($bp-md) {
+   .pagination.container { width: 75%; }
+}
+
+.pagination.grid { margin: auto; }
+.pagination li { display: inline-block; }
+
+.pagination__button,
+.pagination a[rel="prev"],
+.pagination a[rel="next"] {
+   background-color: $dk-grey;
+   height: 0;
+   padding-bottom: 100%;
+   position: relative;
+   display: block;
+   color: #fff;
+   text-transform: uppercase;
+   text-align: center;
+
+   .content-section &:before { display: none !important; }
+   img { opacity: 0.25; }
+
+   span {
+      @include trbl(50%,0,null,0);
+      position: absolute;
+      display: block;
+      transform: translateY(-50%);
+
+      &:before,
+      &:after {
+         content: "";
+         position: absolute;
+         background-color: rgba(255,255,255,0.5);
+         width: 75%;
+         height: 1px;
+         right: 0;
+         left: 0;
+         transition: transform 0.3s ease-in-out;
+         transform: translateY(0) rotate(0deg);
+      }
+
+      &:before { top: 0; margin: -8px auto 0 auto; }
+      &:after { bottom: 0; margin: 0 auto -8px auto; }
+   }
+
+   &:hover span:before,
+   &:focus span:before { transform: translateY(-10px) rotate(0deg); }
+   &:hover span:after,
+   &:focus span:after { transform: translateY(10px) rotate(0deg); }
+}
+
+.pagination__view-all .pagination__button:hover span:before,
+.pagination__view-all .pagination__button:focus span:before { transform: translateY(22px) rotate(45deg); }
+.pagination__view-all .pagination__button:focus span:after,
+.pagination__view-all .pagination__button:hover span:after { transform: translateY(-23px) rotate(-45deg); }
+
+// Hide the view all button for smaller resolutions
+@include bp(null,$max-sm) {
+   .pagination li.pagination__view-all { display: none; }
+}

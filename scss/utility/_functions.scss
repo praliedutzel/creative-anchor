@@ -1,0 +1,54 @@
+//-------------------------------------------------------------------------------//
+//--FUNCTIONS--------------------------------------------------------------------//
+//-------------------------------------------------------------------------------//
+
+// Used for z-index management
+// $z-layers map must be defined to use
+// @see variables
+@function z($layer) {
+    @return map-get($z-layers, $layer);
+}
+
+// Used to remove the units from a given value
+@function strip-units($value) {
+    @return $value / ($value * 0 + 1);
+}
+
+// Convert pixels to EMs
+@function px2em($pixel, $base-font-size: 16px) {
+    $em: $pixel / $base-font-size;
+    @return $em * 1em;
+}
+
+// Convert pixels to REMs
+@function px2rem($pixel, $base-font-size: 16px) {
+    $rem: $pixel / $base-font-size;
+    @return $rem * 1rem;
+}
+
+// Used to calculate percentages from pixel values
+@function calc-pct($target, $container) {
+    @return ($target / $container) * 100%;
+}
+
+// Used to replace part of a string with another value
+@function str-replace($string, $search, $replace: '') {
+    $index: str-index($string, $search);
+
+    @if $index {
+        @return str-slice($string, 1, $index - 1) + $replace + str-replace(str-slice($string, $index + str-length($search)), $search, $replace);
+    }
+
+    @return $string;
+}
+
+// Used to detect the lightness of a background color, and adjust the font color
+// to either black or white as appropriate
+@function set-text-color($color) {
+    @if (lightness($color) > 50) {
+        @return #000;
+    }
+    @else {
+        @return #fff;
+    }
+}

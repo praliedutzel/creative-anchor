@@ -1,0 +1,170 @@
+//-------------------------------------------------------------------------------//
+//--NORMALIZE--------------------------------------------------------------------//
+//-------------------------------------------------------------------------------//
+
+// Set default font family to sans-serif and prevent iOS text size adjustments
+html {
+  font-family: sans-serif;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+
+// Remove default margin
+body {
+  margin: 0;
+}
+
+// Correct block display in IE 8/9/10/11
+article,
+aside,
+figcaption,
+figure,
+footer,
+header,
+main,
+nav,
+section {
+  display: block;
+}
+
+// Remove grey background in IE 10 and text-decoration
+a {
+  background-color: transparent;
+  text-decoration: none;
+}
+
+// Improve readability of links
+a:active,
+a:hover {
+  outline: 0;
+}
+
+// Normalize bold rendering across browsers
+b,
+strong {
+  font-weight: normal;
+}
+
+// Normalize small font sizes across browsers
+small {
+  font-size: 80%;
+}
+
+// Prevent sub and sup affecting line-height in all browsers
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+sup {
+  top: -0.5em;
+}
+sub {
+  bottom: -0.25em;
+}
+
+// Remove border when image is inside link in IE 8/9/10
+img {
+  border: 0;
+}
+
+// Correct overflow not hidden in IE 9/10/11
+svg:not(:root) {
+  overflow: hidden;
+}
+
+// Remove default margin
+figure {
+  margin: 0;
+}
+
+// Contain overflow in all browsers
+pre {
+  overflow: auto;
+}
+
+// Address odd em font size rendering across browsers
+code,
+pre {
+  font-family: monospace, monospace;
+  font-size: 1em;
+}
+
+// Inherits font color and properties and removes margins
+button,
+input,
+select,
+textarea {
+  color: inherit;
+  font: inherit;
+  margin: 0;
+}
+
+// Address overflow set to hidden in IE 8/9/10/11
+button {
+  overflow: visible;
+}
+
+// Address inconsistent text-transform inheritance
+button,
+select {
+  text-transform: none;
+}
+
+// Improve consistency of button elements for Android 4.0 and iOS
+button,
+html input[type="button"], /* 1 */
+input[type="reset"],
+input[type="submit"] {
+  -webkit-appearance: button; /* 2 */
+  cursor: pointer; /* 3 */
+}
+
+// Reset default cursor for disabled elements
+button[disabled],
+html input[disabled] {
+  cursor: default;
+}
+
+// Remove inner padding and border for Firefox 4+
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+// Reset line-height for Firefox 4+
+input {
+  line-height: normal;
+}
+
+// Address search field appearance
+input[type="search"] {
+  -webkit-appearance: textfield; /* 1 */
+  -moz-box-sizing: content-box;
+  -webkit-box-sizing: content-box; /* 2 */
+  box-sizing: content-box;
+}
+
+// Remove webkit appearance for Safari and Chrome on OSX
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+
+// Remove default vertical scrollbar in IE 8/9/10/11
+textarea {
+  overflow: auto;
+}
+
+// Remove spacing between table cells
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+td,
+th {
+  padding: 0;
+}

@@ -1,0 +1,46 @@
+//-------------------------------------------------------------------------------//
+//--CUSTOM VARIABLES-------------------------------------------------------------//
+//-------------------------------------------------------------------------------//
+
+// Color palette
+$cyan: #6ddce5;
+$red: #f26a6c;
+$dk-grey: #232429;
+$lt-grey: #f9f9f9;
+
+
+// Font stack
+$heading-font: "Open Sans", "Lato", Helvetica, Arial, sans-serif;
+$body-font: "Lato", Helvetica, Arial, sans-serif;
+
+
+// Z-index stack
+// Use with the "z" function (see functions section in mixins)
+$z-layers: (
+   "saturn": 9999,
+   "jupiter": 999,
+   "mars": 99,
+   "earth": 1,
+   "venus": -1,
+   "mercury": -9999
+);
+
+
+// Media query stack
+// Use in conjunction with the media query mixin
+$bp-xs: 30em; // 480px
+$bp-sm: 48em; // 768px
+$bp-md: 64em; // 1024px
+$bp-lg: 80em; // 1280px
+$bp-xl: 105em; // 1680px
+$max-xs: $bp-xs - ((1px/16px)*1em);
+$max-sm: $bp-sm - ((1px/16px)*1em);
+$max-md: $bp-md - ((1px/16px)*1em);
+$max-lg: $bp-lg - ((1px/16px)*1em);
+$max-xl: $bp-xl - ((1px/16px)*1em);
+
+
+// Magic numbers
+$sm-header-height: 55px;
+$lg-header-height: 65px;
+$menu-bar-spacing: 6px;

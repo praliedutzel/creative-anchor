@@ -1,0 +1,40 @@
+//-------------------------------------------------------------------------------//
+//--PLACEHOLDER SELECTORS--------------------------------------------------------//
+//-------------------------------------------------------------------------------//
+
+// Resets the box-sizing model to border-box
+%border-box {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+// Used to clear floats to maintain layout flow
+// You can also use the helper class .clearfix
+%clearfix {
+    &:after {
+        content: '';
+        display: table;
+        clear: both;
+    }
+}
+
+// Used to visibibly hide an element while allowing it to be visible to screen
+// readers. Mostly used on span tags for sprites
+%hidden {
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    position: absolute;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    clip: rect(0, 0, 0, 0);
+}
+
+// Used to reset the default list styles for easier customization
+%list-reset {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}

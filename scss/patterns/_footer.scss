@@ -1,0 +1,34 @@
+//-------------------------------------------------------------------------------//
+//--FOOTER-----------------------------------------------------------------------//
+//-------------------------------------------------------------------------------//
+
+.footer {
+   background-color: $dk-grey;
+   @include rem(25px, padding);
+   color: #fff;
+   @include rem(14px);
+   text-align: center;
+}
+
+p.footer__meta a:before { bottom: 4px; }
+p.footer__meta a:after { content: "."; margin-right: 1px; }
+
+.footer .social-icons li { margin-top: 0; margin-right: 0; }
+.footer .social-icons li + li { @include rem(15px, margin-left); }
+
+.footer .social-icons a {
+   width: 38px;
+   height: 38px;
+   margin-right: 0;
+}
+.footer .social-icons .icon {
+   width: 18px;
+   height: 18px;
+}
+
+@include bp($bp-md) {
+   .footer { text-align: left; }
+   .footer__meta { line-height: 38px; }
+   p.footer__meta a:before { bottom: 8px; }
+   .footer .social-icons { text-align: right; }
+}

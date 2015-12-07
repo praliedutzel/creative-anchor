@@ -1,0 +1,64 @@
+//-------------------------------------------------------------------------------//
+//--MAIN MENU--------------------------------------------------------------------//
+//-------------------------------------------------------------------------------//
+
+.main-menu {
+   background-color: rgba($cyan,0.95);
+   @include trbl($sm-header-height,0,0,0);
+   @include rem(50px, padding-top);
+   @include rem(50px, padding-bottom);
+   position: fixed;
+   z-index: z("jupiter");
+   overflow-y: auto;
+   text-align: center;
+   transition: transform 0.5s ease-in-out;
+   transform: translate3d(100%,0,0);
+
+   &.is-open { transform: translate3d(0,0,0); }
+
+   a {
+      @include rem(0 15px, padding);
+      position: relative;
+      display: block;
+      color: #fff;
+      @include rem(23px);
+      font-weight: normal;
+      line-height: $lg-header-height;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      transition: color 0.3s;
+   }
+
+   @include bp($bp-sm) {
+      background-color: transparent;
+      @include trbl(auto,10px,auto,auto);
+      padding-top: 0;
+      padding-bottom: 0;
+      text-align: right;
+      transition: transform 0.3s;
+      transform: translate3d(0,0,0);
+
+      &.is-hidden { transform: translate3d(0,-100%,0); }
+
+      a {
+         @include rem(0 15px, margin);
+         padding: 0;
+         display: inline-block;
+         @include rem(14px);
+         font-weight: 300;
+         letter-spacing: normal;
+
+         &.is-current:before {
+            content: "";
+            position: absolute;
+            background-color: $cyan;
+            width: calc(100% + 30px;
+            height: 3px;
+            @include trbl(0,-15px,null,-15px);
+         }
+      }
+
+      &.is-visible a { color: $dk-grey; }
+      a:hover, a:focus { color: $cyan; }
+   }
+}

@@ -1,0 +1,147 @@
+//-------------------------------------------------------------------------------//
+//--HEADER-----------------------------------------------------------------------//
+//-------------------------------------------------------------------------------//
+
+.header {
+   background-color: #fff;
+   width: 100%;
+   height: $sm-header-height;
+   top: 0;
+   position: fixed;
+   z-index: z("jupiter");
+   border-bottom: 1px solid $cyan;
+   @include rem(14px);
+   text-transform: uppercase;
+   transition: transform 0.3s;
+   transform: translate3d(0,0,0);
+
+   // Prevent the header from scrolling away when the menu is open
+   @include bp(null,$max-sm) {
+      &:not(.menu-is-open).is-hidden { transform: translate3d(0,-100%,0); }
+   }
+
+   @include bp($bp-sm) {
+      background-color: transparent;
+      height: $lg-header-height;
+      border-bottom-color: transparent;
+      @include rem(0 25px, padding);
+      transition: background-color 0.8s, border-bottom-color 0.8s, transform 0.3s;
+
+      &.is-hidden { transform: translate3d(0,-100%,0); }
+      &.is-visible { background-color: rgba(255,255,255,0.95); border-color: $dk-grey; }
+   }
+}
+
+.header__logo {
+   background-color: $cyan;
+   width: $sm-header-height;
+   height: $sm-header-height;
+   position: static;
+   color: $dk-grey;
+   line-height: $sm-header-height;
+
+   .icon {
+      margin-top: 14px;
+      margin-left: 14px;
+      fill: #fff;
+   }
+
+   span {
+      top: 0;
+      left: $sm-header-height;
+      padding-left: 10px;
+      position: absolute;
+      display: block;
+      font-weight: normal;
+      letter-spacing: 0.1em;
+   }
+
+   @include bp($bp-sm) {
+      background-color: transparent;
+      width: auto;
+      height: auto;
+      color: #fff;
+      line-height: $lg-header-height;
+
+      .icon {
+         margin-top: 20px;
+         margin-left: 0;
+         vertical-align: text-bottom;
+         fill: $cyan;
+      }
+
+      span {
+         width: 1px;
+         height: 1px;
+         margin: -1px;
+         padding: 0;
+         position: absolute;
+         overflow: hidden;
+         clip: rect(0 0 0 0);
+         clip: rect(0, 0, 0, 0);
+      }
+   }
+}
+
+.menu-button {
+   background-color: transparent;
+   width: $sm-header-height;
+   height: $sm-header-height;
+   top: 0;
+   padding: 0;
+   position: relative;
+   display: block;
+   float: right;
+   border: none;
+   border-radius: 0;
+   outline: none;
+   box-shadow: none;
+
+   @include bp($bp-sm) {
+      display: none;
+   }
+}
+
+.menu-bar {
+   background-color: $cyan;
+   width: 20px;
+   height: 2px;
+   right: 18px;
+   position: absolute;
+   display: block;
+   border-radius: 4px;
+
+   &:nth-child(1) {
+      top: 26px - $menu-bar-spacing;
+      transition: top 0.3s 0.6s ease, transform 0.3s ease;
+      transform: rotate(0deg);
+      transform-origin: 50% 50%;
+   }
+
+   &:nth-child(2) {
+      top: 26px;
+      opacity: 1;
+      transition: opacity 0.3s ease 0.3s;
+   }
+
+   &:nth-child(3) {
+      top: 26px + $menu-bar-spacing;
+      transition: top 0.3s 0.6s ease, transform 0.3s ease;
+      transform: rotate(0deg);
+      transform-origin: 50% 50%;
+   }
+
+   .menu-is-open &:nth-child(1) {
+      top: 26px;
+      transition: top 0.3s ease, transform 0.3s 0.5s ease;
+      transform: rotate(45deg);
+   }
+
+   .menu-is-open &:nth-child(2) { opacity: 0; }
+
+   .menu-is-open &:nth-child(3) {
+      top: 26px;
+      transition: top 0.3s ease, transform 0.3s 0.5s ease;
+      transform: rotate(-45deg);
+   }
+}

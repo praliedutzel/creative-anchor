@@ -1,0 +1,116 @@
+/*
+   Creative Anchor 2015
+   ===============================
+   Author: Pralie Dutzel
+   Website: praliedutzel.com
+*/
+
+
+/*-------------------------------------------------------------------------------*/
+/*--NORMALIZE & IMPORTS----------------------------------------------------------*/
+/*-------------------------------------------------------------------------------*/
+
+// Include common variables
+@import "variables";
+
+// Include mixins, functions, etc.
+@import "utility/base";
+
+
+/*-------------------------------------------------------------------------------*/
+/*--GLOBAL STYLES----------------------------------------------------------------*/
+/*-------------------------------------------------------------------------------*/
+
+// Reset box-sizing for all elements
+@include border-box;
+
+html {
+   font-size: 90%;
+
+   @include bp($bp-md) { font-size: 100%; }
+   @include bp(120em) { font-size: 110%; }
+}
+
+body {
+   background-color: #fff;
+   margin: 0;
+   padding: 0;
+   color: #000;
+   font-family: $body-font;
+   font-size: 100%;
+   font-weight: 300;
+   line-height: 2;
+}
+
+a {
+   position: relative;
+   display: inline-block;
+   color: $cyan;
+   text-decoration: none;
+
+   p &:not(.button):before,
+   ul:not(.grid):not(.social-icons) &:before {
+      content: "";
+      position: absolute;
+      display: inline-block;
+      background-color: $cyan;
+      width: 100%;
+      height: 1px;
+      @include trbl(null,0,3px,0);
+      transition: transform 0.3s;
+      transform: scaleX(0);
+      transform-origin: 0%;
+   }
+   p &:not(.button):hover:before,
+   ul:not(.grid):not(.social-icons) &:hover:before,
+   p &:not(.button):focus:before,
+   ul:not(.grid):not(.social-icons) &:focus:before { transform: scaleX(1); }
+}
+
+ul {
+   padding-left: 20px;
+   list-style: square;
+}
+
+
+/*-------------------------------------------------------------------------------*/
+/*--PATTERNS---------------------------------------------------------------------*/
+/*-------------------------------------------------------------------------------*/
+
+@import "patterns/typography";
+@import "patterns/iconography";
+@import "patterns/media";
+@import "patterns/buttons";
+@import "patterns/forms";
+@import "patterns/cards";
+
+
+/*-------------------------------------------------------------------------------*/
+/*--LAYOUT PATTERNS--------------------------------------------------------------*/
+/*-------------------------------------------------------------------------------*/
+
+@import "patterns/layout";
+@import "patterns/grid";
+@import "patterns/header";
+@import "patterns/main-menu";
+@import "patterns/footer";
+@import "patterns/hero";
+
+
+/*-------------------------------------------------------------------------------*/
+/*--MISC-------------------------------------------------------------------------*/
+/*-------------------------------------------------------------------------------*/
+
+.screen-reader { @extend %hidden; }
+.mobile { display: block; }
+.desktop { display: none; }
+
+@include bp($bp-md) {
+   .mobile { display: none; }
+   .desktop { display: block; }
+}
+
+@include selection {
+   background-color: $cyan;
+   color: #fff;
+}

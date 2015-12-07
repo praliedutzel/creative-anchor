@@ -1,0 +1,22 @@
+{
+  "name": "creative-anchor",
+  "version": "1.0.0",
+  "description": "The web design and front-end development portfolio of Pralie Dutzel.",
+  "author": "Pralie Dutzel",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/praliedutzel/creative-anchor/"
+  },
+  "license": "ISC",
+  "devDependencies": {
+    "gulp": "^3.9.0",
+    "gulp-autoprefixer": "^3.1.0",
+    "gulp-cache": "^0.4.1",
+    "gulp-imagemin": "^2.4.0",
+    "gulp-jshint": "^2.0.0",
+    "gulp-minify": "0.0.5",
+    "gulp-sass": "^2.1.0",
+    "gulp-svg-sprite": "^1.2.14",
+    "jshint": "^2.8.0"
+  }
+}

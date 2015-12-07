@@ -1,0 +1,35 @@
+//-------------------------------------------------------------------------------//
+//--MEDIA------------------------------------------------------------------------//
+//-------------------------------------------------------------------------------//
+
+img {
+   width: 100%;
+   display: block;
+}
+
+
+// The featured image appears to the right of the intro content
+.featured-image { max-width: 300px; }
+
+
+.content-media { @include rem(50px 0, margin); }
+.content-media img { max-width: 100%; margin: auto; }
+
+.content-media__caption {
+   @include rem(10px, margin-top);
+   @include rem(14px);
+   font-style: italic;
+   text-align: center;
+}
+
+
+@include bp($bp-md) {
+   .featured-image {
+      max-width: 90%;
+      margin-right: 0;
+      margin-left: auto;
+   }
+
+   .grid__half:nth-child(1) .content-media__caption { text-align: left; }
+   .grid__half:nth-child(2) .content-media__caption { text-align: right; }
+}

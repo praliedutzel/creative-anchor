@@ -1,0 +1,142 @@
+//-------------------------------------------------------------------------------//
+//--ICONOGRAPHY------------------------------------------------------------------//
+//-------------------------------------------------------------------------------//
+
+.icon {
+   width: 24px;
+   height: 24px;
+   fill: $cyan;
+   transition: fill 0.3s;
+}
+
+// Creates a circle around the icon
+.icon-wrapper {
+   background-color: transparent;
+   width: 50px;
+   height: 50px;
+   margin: auto;
+   border: 2px solid $cyan;
+   border-radius: 50%;
+   text-align: center;
+   transition: background-color 0.3s;
+
+   .icon { margin-top: 10px; }
+
+   @include bp($bp-sm) {
+      width: 75px;
+      height: 75px;
+
+      .icon {
+         width: 32px;
+         height: 32px;
+         margin-top: 20px;
+      }
+   }
+
+   @include bp($bp-lg) {
+      width: 100px;
+      height: 100px;
+      .icon { margin-top: 32px; }
+   }
+}
+a:hover .icon-wrapper, li > .icon-wrapper:hover,
+a:focus .icon-wrapper, li > .icon-wrapper:focus { background-color: $cyan; }
+a:hover .icon-wrapper .icon, li > .icon-wrapper:hover .icon,
+a:focus .icon-wrapper .icon, li > .icon-wrapper:focus .icon { fill: #fff; }
+
+// Larger icon for features articles on the homepage
+.icon-wrapper--featured {
+   width: 300px;
+   height: 300px;
+
+   .icon {
+      width: 150px;
+      height: 150px;
+      margin-top: 75px;
+   }
+
+   @include bp($bp-md) {
+      top: -50px;
+      left: -100px;
+      width: 600px;
+      height: 600px;
+      position: absolute;
+
+      .icon {
+         width: 300px;
+         height: 300px;
+         margin-top: 150px;
+      }
+   }
+}
+
+.icon-caption { @include rem(14px); }
+
+.skillset-icons {
+   @include rem(25px 0 0 0, margin);
+   padding: 0;
+   list-style: none;
+
+   li {
+      width: 105px;
+      margin: 0 5px 35px 5px;
+      display: inline-block;
+      text-align: center;
+   }
+   
+   @include bp($bp-md) {
+      margin-top: 0;
+      text-align: center;
+      li { width: 115px; }
+   }
+
+   // Adjust the width of each skill icon to improve readability of items per row
+   @media screen and (min-width: px2em(650px)) and (max-width: $max-md), (min-width: $bp-lg) {
+      li { width: 135px; }
+   }
+}
+
+.social-icons {
+   @include rem(35px 0 0 0, margin);
+   padding: 0;
+   list-style: none;
+
+   li {
+      @include rem(15px, margin-top);
+      @include rem(15px, margin-right);
+      display: inline-block;
+   }
+
+   a {
+      background-color: transparent;
+      width: 44px;
+      height: 44px;
+      border: 2px solid $cyan;
+      border-radius: 50%;
+      text-align: center;
+      transition: background-color 0.3s;
+   }
+
+   .icon { margin-top: 8px; }
+
+   a:after {
+      content: "";
+      position: absolute;
+      display: block;
+      width: 100%;
+      height: 100%;
+      top: -6px;
+      left: -6px;
+      padding: 6px;
+      border-radius: 50%;
+      box-shadow: 0 0 0 2px $cyan;
+      box-sizing: content-box;
+      opacity: 0;
+      transition: opacity 0.3s, transform 0.3s;
+      transform: scale(0.8);
+   }
+
+   a:hover, a:focus { background-color: $cyan; }
+   a:hover .icon, a:focus .icon { fill: #fff; }
+   a:hover:after, a:focus:after { opacity: 1; transform: scale(1); }
+}

@@ -1,0 +1,97 @@
+/*
+   Creative Anchor 2015 Patterns
+   ==================================
+   Author: Pralie Dutzel
+   Website: praliedutzel.com/patterns
+*/
+
+// Include common variables
+@import "variables";
+
+// Include mixins, functions, etc.
+@import "utility/placeholders";
+@import "utility/responsive";
+@import "utility/utility";
+@import "utility/functions";
+
+.patterns {
+
+   h2 { @include rem(50px, margin-top); }
+
+   .color-palette .card__header { @include rem(75px 25px, padding); }
+   .color-palette .card__header.color-palette__cyan { background-color: $cyan; }
+   .color-palette .card__header.color-palette__red { background-color: $red; }
+   .color-palette .card__header.color-palette__dkgrey { background-color: $dk-grey; }
+   .color-palette .card__header.color-palette__ltgrey { background-color: $lt-grey; }
+
+   .color-palette .card__title p {
+      @include rem(20px 0, margin);
+      @include rem(16px);
+      transition: transform 0.3s ease-in;
+      transform: translateY(0);
+
+      @include bp($bp-sm,$max-lg) { @include rem(20px); }
+      @include bp($bp-lg) { @include rem(24px); }
+   }
+
+   .skillset-icons { @include rem(25px, margin-top); text-align: left; }
+   .social-icons { margin-top: 0; }
+
+   .skillset-icons + h3 { @include rem(20px, margin-top); }
+
+   form { @extend %clearfix; }
+
+   .grid-example div {
+      background-color: $dk-grey;
+      padding: 25px;
+      color: #fff;
+      text-align: center;
+   }
+   .container--small.grid-example div { margin: 10px auto; }
+
+}
+
+
+// Styles to mimic typography
+p.h1, p.h2, p.h3 {
+   @include rem(15px 0, margin);
+   font-family: $heading-font;
+   font-weight: inherit;
+   line-height: 1;
+   text-transform: uppercase;
+}
+
+p.h1 {
+   @include rem(32px);
+   letter-spacing: 0.35rem;
+
+   @include bp(px2em(560px),$max-sm) {
+      @include rem(54px);
+   }
+
+   @include bp($bp-sm,$max-lg) {
+      @include rem(75px);
+      letter-spacing: 0.75rem;
+   }
+
+   @include bp($bp-lg) {
+      @include rem(90px);
+      letter-spacing: 0.75rem;
+   }
+}
+
+p.h2 {
+   @include rem(32px);
+
+   @include bp($bp-md) {
+      @include rem(40px);
+   }
+}
+
+p.h3 {
+   @include rem(23px);
+
+   @include bp($bp-md) {
+      @include rem(30px);
+   }
+}

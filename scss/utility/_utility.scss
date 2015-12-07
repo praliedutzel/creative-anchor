@@ -1,0 +1,90 @@
+//-------------------------------------------------------------------------------//
+//--UTILITY MIXINS---------------------------------------------------------------//
+//-------------------------------------------------------------------------------//
+
+
+// Resets the box-sizing model to border-box
+@mixin border-box {
+    html { box-sizing: border-box; }
+    *, *:before, *:after { box-sizing: inherit; }
+}
+
+// Pixel fallback for REM units
+@mixin rem($pixels, $prop: font-size, $important: false) {
+    // Check if there are more than four possible values
+    @if (length($pixels) <= 4) {
+        #{$prop}: $pixels;
+
+        // Create an empty list to add converted pixel values to
+        $list: null;
+
+        // For each value for pixels, convert to rems and append to list
+        @each $px-val in $pixels {
+            @if (unit($px-val) == "px" and $px-val != 0px) {
+                $list: append($list, px2rem($px-val), space);
+            }
+            @else if ($px-val == 0 or $px-val == 0px) {
+                $list: append($list, strip-units($px-val), space);
+            }
+            @else {
+                $list: append($list, $px-val, space);
+            }
+        }
+
+        // Output the converted pixel values
+        #{$prop}: $list #{if($important, !important, '')};
+    }
+    @else {
+        @include error("You've entered too many values for the rem mixin. The maximum is four.");
+    }
+}
+
+@mixin trbl($top: null, $right: null, $bottom: null, $left: null) {
+    top: $top;
+    right: $right;
+    bottom: $bottom;
+    left: $left
+}
+
+@mixin gradient($gradient: linear, $direction: 180deg, $IE9: false, $color-stops...) {
+    background-color: nth($color-stops, 1);
+    background-image: #{$gradient}-gradient($direction, $color-stops);
+
+    @if $IE9 == true {
+        $ie-start: ie_hex_str(nth($color-stops, 1));
+        $ie-stop: ie_hex_str(nth($color-stops, length($color-stops)));
+        -ms-filter: "progid:DXImageTransform.Microsoft.gradient (GradientType=0, startColorstr=#{$ie-start}, endColorstr=#{$ie-stop})";
+    }
+}
+
+// Allows styling of placeholder text for form fields
+@mixin placeholder {
+    $placeholders: ":-webkit-input", ":-moz", "-moz", "-ms-input";
+    @each $placeholder in $placeholders {
+        &:#{$placeholder}-placeholder {
+            @content;
+        }
+    }
+}
+
+// Allows styling of selected elements
+// Note: selection has been removed from the spec
+@mixin selection {
+    $selections: "-moz-", "";
+    @each $selection in $selections {
+        ::#{$selection}selection {
+            @content;
+        }
+    }
+}
+
+
+// Error logging
+@mixin error($message) {
+    @if (feature-exists('at-error') == true) {
+        @error $message;
+    }
+    @else {
+        @warn $message;
+    }
+}
