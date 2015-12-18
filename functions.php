@@ -54,6 +54,13 @@ if ( class_exists( 'MultiPostThumbnails' ) ) {
             'post_type' => $type
          )
       );
+      new MultiPostThumbnails(
+         array (
+            'label' => 'Medium Hero Image',
+            'id'    => 'medium-hero-image',
+            'post_type' => $type
+         )
+      );
    }
 
    new MultiPostThumbnails(

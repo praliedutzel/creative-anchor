@@ -16,11 +16,16 @@
          if ( MultiPostThumbnails::has_post_thumbnail( $postType, 'mobile-hero-image', $id ) ) {
             $mobileHero = MultiPostThumbnails::get_post_thumbnail_url( $postType, 'mobile-hero-image', $id );
          }
+
+         if ( MultiPostThumbnails::has_post_thumbnail( $postType, 'medium-hero-image', $id ) ) {
+            $mediumHero = MultiPostThumbnails::get_post_thumbnail_url( $postType, 'medium-hero-image', $id );
+         }
    ?>
       <picture>
-         <source media="(min-width: 64em)" srcset="<?php echo $hero; ?>">
+         <source media="(min-width: 80em)" srcset="<?php echo $hero; ?>">
+         <source media="(min-width: 64em)" srcset="<?php echo $mediumHero; ?>">
          <source media="(max-width: 64em)" srcset="<?php echo $mobileHero; ?>">
-         <img src="<?php echo $hero; ?>" alt="<?php the_title(); ?>" class="hero__media">
+         <img src="<?php echo $mediumHero; ?>" alt="<?php the_title(); ?>" class="hero__media">
       </picture>
    <?php endif; ?>
 
