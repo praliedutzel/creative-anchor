@@ -24,36 +24,7 @@ global $templateDirectory;
       $article_id = $articles[$i]->ID;
       $articleName = get_the_title( $article_id );
       $articleExcerpt = apply_filters( 'the_excerpt', get_post_field( 'post_excerpt', $article_id ) );
-
-      $categories = get_the_category( $article_id );
-      foreach ($categories as $category) {
-         if ( $category->name != 'Featured' ) {
-            $articleIcon = $category->slug;
-            switch ( $category->name ) {
-               case 'Design & UX':
-                  $articleIcon = 'web-design';
-                  break;
-               case 'Front-End Development':
-                  $articleIcon = 'front-end-dev';
-                  break;
-               case 'Sass':
-                  $articleIcon = 'sass';
-                  break;
-               case 'Web Performance':
-                  $articleIcon = 'ui-ux-design';
-                  break;
-               case 'WordPress Development':
-                  $articleIcon = 'wordpress';
-                  break;
-               case 'Uncategorized':
-                  $articleIcon = 'anchor';
-                  break;
-               default:
-                  $articleIcon = 'anchor';
-                  break;
-            }
-         }
-      }
+      $articleIcon = get_category_icons( $article_id );
    ?>
       <div class="grid__half">
          <h3 class="h2"><?php echo $articleName; ?></h3>

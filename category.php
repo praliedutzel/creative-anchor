@@ -11,36 +11,7 @@
             <?php
                while ( have_posts() ) : the_post();
                   $articleName = get_the_title( $id );
-
-                  $categories = get_the_category( $id );
-                  foreach ($categories as $category) {
-                     if ( $category->name != 'Featured' ) {
-                        $articleIcon = $category->slug;
-                        switch ( $category->name ) {
-                           case 'Design & UX':
-                              $articleIcon = 'web-design';
-                              break;
-                           case 'Front-End Development':
-                              $articleIcon = 'front-end-dev';
-                              break;
-                           case 'Sass':
-                              $articleIcon = 'sass';
-                              break;
-                           case 'Web Performance':
-                              $articleIcon = 'ui-ux-design';
-                              break;
-                           case 'WordPress Development':
-                              $articleIcon = 'wordpress';
-                              break;
-                           case 'Uncategorized':
-                              $articleIcon = 'anchor';
-                              break;
-                           default:
-                              $articleIcon = 'anchor';
-                              break;
-                        }
-                     }
-                  }
+                  $articleIcon = get_category_icons( $id );
             ?>
                <li class="grid__fourth"><a href="<?php echo get_the_permalink( $id ); ?>" class="card">
                   <div class="card__header">

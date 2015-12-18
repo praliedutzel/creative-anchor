@@ -227,6 +227,51 @@ add_filter( 'img_caption_shortcode', 'ca_img_caption_shortcode', 10, 3 );
 
 
 /*-----------------------------------------------------------------------------------*/
+/* Set the icons for each article category
+/*-----------------------------------------------------------------------------------*/
+
+function get_category_icons( $article_id ) {
+   $categories = get_the_category( $article_id );
+   foreach ($categories as $category) {
+      if ( $category->name != 'Featured' ) {
+         $articleIcon = $category->slug;
+         switch ( $category->name ) {
+            case 'Design & UX':
+               $articleIcon = 'web-design';
+               break;
+            case 'Design Considerations':
+               $articleIcon = 'web-design';
+               break;
+            case 'Front-End Development':
+               $articleIcon = 'front-end-dev';
+               break;
+            case 'Sass':
+               $articleIcon = 'sass';
+               break;
+            case 'Web Performance':
+               $articleIcon = 'ui-ux-design';
+               break;
+            case 'WordPress Development':
+               $articleIcon = 'wordpress';
+               break;
+            case 'Email Development':
+               $articleIcon = 'email';
+               break;
+            case 'Uncategorized':
+               $articleIcon = 'anchor';
+               break;
+            default:
+               $articleIcon = 'anchor';
+               break;
+         }
+      }
+   }
+   return $articleIcon;
+}
+
+
+
+/*-----------------------------------------------------------------------------------*/
 /* Enqueue styles and scripts
 /*-----------------------------------------------------------------------------------*/
 
