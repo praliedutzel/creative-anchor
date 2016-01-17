@@ -33,5 +33,7 @@
 
    <?php wp_footer(); ?>
 
+   <script>svg4everybody();</script>
+
 </body>
 </html>
