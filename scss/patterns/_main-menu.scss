@@ -31,7 +31,7 @@
 
    @include bp($bp-sm) {
       background-color: transparent;
-      @include trbl(auto,10px,auto,auto);
+      @include trbl(0,10px,auto,auto);
       padding-top: 0;
       padding-bottom: 0;
       text-align: right;
