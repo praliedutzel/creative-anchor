@@ -31,8 +31,10 @@
 
    <div class="hero__content">
       <?php if ( is_front_page() ) : ?>
-         <h1><?php bloginfo('name'); ?></h1>
-         <p class="hero__subtitle"><?php bloginfo('description'); ?></p>
+         <h1>
+            <?php bloginfo('name'); ?>
+            <span class="hero__subtitle"><?php bloginfo('description'); ?></span>
+         </h1>
       <?php elseif ( is_archive() ) : ?>
          <h1><?php single_cat_title(); ?> Archives</h1>
       <?php else : ?>

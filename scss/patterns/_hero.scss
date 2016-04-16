@@ -41,7 +41,18 @@
    transform: translateY(-50%);
 }
 
-.hero__subtitle { @include rem(18px); }
+.hero__subtitle {
+   @include rem($sm-spacing, margin-top);
+   display: block;
+   @include rem(18px);
+   letter-spacing: normal;
+   text-transform: none;
+
+   @include bp($bp-md) {
+      @include rem($md-spacing, margin-top);
+   }
+}
+
 .hero__subtitle:before {
    content: "";
    position: relative;
@@ -51,10 +62,10 @@
    height: 2px;
    right: 0;
    left: 0;
-   margin: -5px auto 10px auto;
+   @include rem(0 auto $sm-spacing auto, margin);
 
    @include bp($bp-md) {
       width: 100px;
-      margin: -30px auto 30px auto;
+      @include rem($md-spacing, margin-bottom);
    }
 }
