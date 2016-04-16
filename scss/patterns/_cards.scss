@@ -6,26 +6,28 @@
 .card {
    background-color: $lt-grey;
    position: relative;
-   display: block;
+   display: flex;
    color: $dk-grey;
-   text-align: center;
 }
 
-.card__header {
+.card__teaser {
    background-color: $dk-grey;
    @include rem(25px, padding);
+   display: flex;
+   float: left;
 }
 
-.card__title {
+.card__content {
    @include rem(10px 20px, padding);
 
    @include bp($bp-sm) {
-      @include rem(20px, padding);
+      @include rem(25px, padding);
+      float: left;
    }
 }
 
-.card__title h3 {
-   @include rem(20px 0, margin);
+.card__title {
+   margin: 0;
    @include rem(16px);
    transition: transform 0.3s ease-in;
    transform: translateY(0);
@@ -34,21 +36,21 @@
    @include bp($bp-lg) { @include rem(24px); }
 }
 
-.card__title:after {
-   content: "";
-   position: absolute;
-   display: block;
-   background-color: $cyan;
-   width: 100%;
-   height: 5px;
-   @include trbl(null,0,0,0);
-   transition: transform 0.3s ease-in;
-   transform: scaleY(0);
-}
-.card:hover .card__title:after,
-.card:focus .card__title:after { transform: scaleY(1); }
-.card:hover .card__title h3,
-.card:focus .card__title h3 { transform: translateY(-5px); }
+// .card__content:after {
+//    content: "";
+//    position: absolute;
+//    display: block;
+//    background-color: $cyan;
+//    width: 100%;
+//    height: 5px;
+//    @include trbl(null,0,0,0);
+//    transition: transform 0.3s ease-in;
+//    transform: scaleY(0);
+// }
+// .card:hover .card__title:after,
+// .card:focus .card__title:after { transform: scaleY(1); }
+// .card:hover .card__title h3,
+// .card:focus .card__title h3 { transform: translateY(-5px); }
 
 
 // Visual-based card used to display portfolio pieces

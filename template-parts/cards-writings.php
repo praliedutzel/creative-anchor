@@ -28,17 +28,20 @@ global $templateDirectory;
             $articleName = get_the_title( $article_id );
             $articleIcon = get_category_icons( $article_id );
       ?>
-            <li class="grid__fourth"><a href="<?php echo get_the_permalink( $article_id ); ?>" class="card">
-               <div class="card__header">
+            <li class="grid__half card">
+               <a href="<?php echo get_the_permalink( $article_id ); ?>" class="card__teaser">
                   <div class="icon-wrapper">
                      <svg class="icon">
                         <use xlink:href="<?php echo $templateDirectory; ?>/img/spritemap.svg#<?php echo $articleIcon; ?>"></use>
                      </svg>
                   </div>
+               </a>
+               <div class="card__content">
+                  <h3 class="card__title"><a href="<?php echo get_the_permalink( $article_id ); ?>">
+                     <?php echo $articleName; ?>
+                  </a></h3>
+                  <p class="desktop"><?php echo $articles[$i]->post_excerpt; ?></p>
                </div>
-               <div class="card__title">
-                  <h3><?php echo $articleName; ?></h3>
-               </div>
-            </a></li>
+            </li>
       <?php } ?>
    </ul>

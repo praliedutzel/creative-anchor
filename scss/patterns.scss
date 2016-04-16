@@ -18,11 +18,11 @@
 
    h2 { @include rem(50px, margin-top); }
 
-   .color-palette .card__header { @include rem(75px 25px, padding); }
-   .color-palette .card__header.color-palette__cyan { background-color: $cyan; }
-   .color-palette .card__header.color-palette__red { background-color: $red; }
-   .color-palette .card__header.color-palette__dkgrey { background-color: $dk-grey; }
-   .color-palette .card__header.color-palette__ltgrey { background-color: $lt-grey; }
+   .color-block  { @include rem(75px 25px, padding); }
+   .color-block__cyan { background-color: $cyan; }
+   .color-block__red { background-color: $red; }
+   .color-block__dkgrey { background-color: $dk-grey; }
+   .color-block__ltgrey { background-color: $lt-grey; }
 
    .color-palette .card__title p {
       @include rem(20px 0, margin);
@@ -50,6 +50,17 @@
    .container--small.grid-example div { margin: 10px auto; }
 
 }
+
+.color-swatch {
+   width: 50px;
+   height: 50px;
+   margin: 0 auto;
+}
+
+.color-swatch--cyan { background-color: $cyan; }
+.color-swatch--red { background-color: $red; }
+.color-swatch--dkgrey { background-color: $dk-grey; }
+.color-swatch--ltgrey { background-color: $lt-grey; }
 
 
 // Styles to mimic typography

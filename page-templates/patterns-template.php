@@ -31,31 +31,23 @@
             <?php echo apply_filters( 'the_content', get_field( 'color_palette' ) ); ?>
          </div>
 
-         <div class="container">
-            <ul class="grid color-palette">
-               <li class="grid__fourth card">
-                  <div class="card__header color-palette__cyan"></div>
-                  <div class="card__title">
-                     <p>#6ddce5</p>
-                  </div>
+         <div class="container container--small">
+            <ul class="grid">
+               <li class="grid__fourth center-text">
+                  <div class="color-swatch color-swatch--cyan"></div>
+                  <p class="color-identity">$cyan<br>#6ddce5</p>
                </li>
-               <li class="grid__fourth card">
-                  <div class="card__header color-palette__red"></div>
-                  <div class="card__title">
-                     <p>#f26a6c</p>
-                  </div>
+               <li class="grid__fourth center-text">
+                  <div class="color-swatch color-swatch--red"></div>
+                  <p class="color-identity">$red<br>#f26a6c</p>
                </li>
-               <li class="grid__fourth card">
-                  <div class="card__header color-palette__dkgrey"></div>
-                  <div class="card__title">
-                     <p>#232429</p>
-                  </div>
+               <li class="grid__fourth center-text">
+                  <div class="color-swatch color-swatch--dkgrey"></div>
+                  <p class="color-identity">$dk-grey<br>#232429</p>
                </li>
-               <li class="grid__fourth card">
-                  <div class="card__header color-palette__ltgrey"></div>
-                  <div class="card__title">
-                     <p>#f9f9f9</p>
-                  </div>
+               <li class="grid__fourth center-text">
+                  <div class="color-swatch color-swatch--ltgrey"></div>
+                  <p class="color-identity">$lt-grey<br>#f9f9f9</p>
                </li>
             </ul>
          </div>
@@ -184,56 +176,30 @@
 
          <div class="container">
             <ul class="grid">
-               <li class="grid__fourth"><a href="javascript:void(0)" class="card">
-                  <div class="card__header">
+               <li class="grid__half card">
+                  <a href="javascript:void(0)" class="card__teaser">
                      <div class="icon-wrapper">
                         <svg class="icon">
                            <use xlink:href="<?php echo $templateDirectory; ?>/img/spritemap.svg#sass"></use>
                         </svg>
                      </div>
-                     <span class="screen-reader">Sass</span>
-                  </div>
-                  <div class="card__title">
-                     <h3>Lorem Ipsum</h3>
+                  </a>
+                  <div class="card__content">
+                     <h3 class="card__title"><a href="javascript:void(0)">Lorem Ipsum</a></h3>
+                     <p class="desktop">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
                   </div>
                </a></li>
-               <li class="grid__fourth"><a href="javascript:void(0)" class="card">
-                  <div class="card__header">
+               <li class="grid__half card">
+                  <a href="javascript:void(0)" class="card__teaser">
                      <div class="icon-wrapper">
                         <svg class="icon">
                            <use xlink:href="<?php echo $templateDirectory; ?>/img/spritemap.svg#sass"></use>
                         </svg>
                      </div>
-                     <span class="screen-reader">Sass</span>
-                  </div>
-                  <div class="card__title">
-                     <h3>Dolor Set Amet Consectetur</h3>
-                  </div>
-               </a></li>
-               <li class="grid__fourth"><a href="javascript:void(0)" class="card">
-                  <div class="card__header">
-                     <div class="icon-wrapper">
-                        <svg class="icon">
-                           <use xlink:href="<?php echo $templateDirectory; ?>/img/spritemap.svg#sass"></use>
-                        </svg>
-                     </div>
-                     <span class="screen-reader">Sass</span>
-                  </div>
-                  <div class="card__title">
-                     <h3>Adipisicing Elit Sed Do Eiusmod</h3>
-                  </div>
-               </a></li>
-               <li class="grid__fourth"><a href="javascript:void(0)" class="card">
-                  <div class="card__header">
-                     <div class="icon-wrapper">
-                        <svg class="icon">
-                           <use xlink:href="<?php echo $templateDirectory; ?>/img/spritemap.svg#sass"></use>
-                        </svg>
-                     </div>
-                     <span class="screen-reader">Sass</span>
-                  </div>
-                  <div class="card__title">
-                     <h3>Tempor Incididunt Ut Labore</h3>
+                  </a>
+                  <div class="card__content">
+                     <h3 class="card__title"><a href="javascript:void(0)">Lorem Ipsum</a></h3>
+                     <p class="desktop">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
                   </div>
                </a></li>
             </ul>
