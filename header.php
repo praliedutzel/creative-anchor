@@ -40,6 +40,12 @@
    <![endif]-->
 
    <?php wp_head(); ?>
+
+   <?php
+      if ( get_field( 'social_image' ) != '' ) {
+         echo '<meta name="twitter:image" content="'.get_field( 'social_image' ).'" />';
+      }
+   ?>
 </head>
 
 <body <?php body_class(); ?>>
