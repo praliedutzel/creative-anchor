@@ -4,7 +4,7 @@
 
    <footer class="footer">
       <div class="grid">
-         <p class="footer__meta grid__half">Creative Anchor &copy; <?php echo the_date('Y'); ?> Pralie Dutzel. All rights reserved.
+         <p class="footer__meta grid__half">Creative Anchor &copy; <?php echo date('Y'); ?> Pralie Dutzel. All rights reserved.
             <?php
                wp_nav_menu( array(
                   'theme_location' => 'footer',
