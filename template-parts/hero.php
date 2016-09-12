@@ -3,7 +3,7 @@
 /* Display hero images
 /*-----------------------------------------------------------------------------------*/
 ?>
-<section class="hero">
+<section class="hero <?php echo ( is_page('writings') || is_page('showcase') ) ? 'hero--small' : '' ;?>">
    <?php
       if ( is_front_page() ) {
          echo '<div class="hero__gradient"></div>';

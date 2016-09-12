@@ -19,38 +19,44 @@
 
 .card__content {
    @include rem(10px 20px, padding);
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
 
    @include bp($bp-sm) {
       @include rem(25px, padding);
       float: left;
    }
+
+   @include bp($bp-md) {
+      justify-content: flex-start;
+   }
 }
 
 .card__title {
    margin: 0;
-   @include rem(16px);
-   transition: transform 0.3s ease-in;
-   transform: translateY(0);
+   @include rem(18px);
 
-   @include bp($bp-sm,$max-lg) { @include rem(20px); }
+   @include bp($bp-xs,$max-lg) { @include rem(20px); }
    @include bp($bp-lg) { @include rem(24px); }
 }
 
-// .card__content:after {
-//    content: "";
-//    position: absolute;
-//    display: block;
-//    background-color: $cyan;
-//    width: 100%;
-//    height: 5px;
-//    @include trbl(null,0,0,0);
-//    transition: transform 0.3s ease-in;
-//    transform: scaleY(0);
-// }
-// .card:hover .card__title:after,
-// .card:focus .card__title:after { transform: scaleY(1); }
-// .card:hover .card__title h3,
-// .card:focus .card__title h3 { transform: translateY(-5px); }
+.card__external-link {
+   width: 16px;
+   height: 16px;
+   right: 10px;
+   bottom: 10px;
+   position: absolute;
+   fill: rgba($dk-grey,0.25);
+
+   @include bp($bp-md) {
+      width: 22px;
+      height: 22px;
+   }
+}
+.card:hover .card__external-link,
+.card:focus .card__external-link { fill: $dk-grey; }
+
 
 
 // Visual-based card used to display portfolio pieces

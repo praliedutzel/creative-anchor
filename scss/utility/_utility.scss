@@ -20,7 +20,10 @@
 
         // For each value for pixels, convert to rems and append to list
         @each $px-val in $pixels {
-            @if (unit($px-val) == "px" and $px-val != 0px) {
+            @if ($px-val == "auto") {
+                $list: append($list, $px-val, space);
+            }
+            @else if (unit($px-val) == "px" and $px-val != 0px) {
                 $list: append($list, px2rem($px-val), space);
             }
             @else if ($px-val == 0 or $px-val == 0px) {

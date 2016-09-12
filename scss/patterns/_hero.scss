@@ -15,8 +15,15 @@
 
    .picture & {
       padding-bottom: 75%;
+      
       @include bp($bp-md) { padding-bottom: 50%; }
    }
+}
+
+.picture .hero--small {
+   padding-bottom: 50%;
+
+   @include bp($bp-md) { padding-bottom: 35%; }
 }
 
 .hero__gradient {

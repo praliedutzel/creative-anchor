@@ -27,21 +27,32 @@ global $templateDirectory;
             $article_id = $articles[$i]->ID;
             $articleName = get_the_title( $article_id );
             $articleIcon = get_category_icons( $article_id );
+            $isExternalPost = get_field( 'external_post', $article_id );
       ?>
-            <li class="grid__half card">
-               <a href="<?php echo get_the_permalink( $article_id ); ?>" class="card__teaser">
-                  <div class="icon-wrapper">
-                     <svg class="icon">
-                        <use xlink:href="<?php echo $templateDirectory; ?>/img/spritemap.svg#<?php echo $articleIcon; ?>"></use>
-                     </svg>
+            <li class="grid__half flex">
+               <?php if ( $isExternalPost == 'yes' ) : ?>
+               <a href="<?php echo get_field( 'external_link', $article_id ); ?>" target="_blank" class="card">
+               <?php else : ?>
+               <a href="<?php echo get_the_permalink( $article_id ); ?>" class="card">
+               <?php endif; ?>
+                  <div class="card__teaser">
+                     <div class="icon-wrapper">
+                        <svg class="icon">
+                           <use xlink:href="<?php echo $templateDirectory; ?>/img/spritemap.svg#<?php echo $articleIcon; ?>"></use>
+                        </svg>
+                     </div>
+                  </div>
+                  <div class="card__content">
+                     <h3 class="card__title"><?php echo $articleName; ?></h3>
+                     <p class="desktop"><?php echo $articles[$i]->post_excerpt; ?></p>
+
+                     <?php if ( $isExternalPost == 'yes' ) : ?>
+                        <svg class="icon card__external-link">
+                            <use xlink:href="<?php echo $templateDirectory; ?>/img/spritemap.svg#external-link"></use>
+                        </svg>
+                     <?php endif; ?>
                   </div>
                </a>
-               <div class="card__content">
-                  <h3 class="card__title"><a href="<?php echo get_the_permalink( $article_id ); ?>">
-                     <?php echo $articleName; ?>
-                  </a></h3>
-                  <p class="desktop"><?php echo $articles[$i]->post_excerpt; ?></p>
-               </div>
             </li>
       <?php } ?>
    </ul>
